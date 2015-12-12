@@ -1,5 +1,6 @@
 package br.com.godinhowolff.utilidades;
 
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -17,6 +18,7 @@ public class Utilidades{
 
 
 	@WebMethod(operationName = "validaCPF")
+	@WebResult(name = "cpfIsValid")
     public  Boolean validaCPF(@WebParam(name = "cpf")String cpf) {  
         if (cpf.length() != 11) { 
             return false;  

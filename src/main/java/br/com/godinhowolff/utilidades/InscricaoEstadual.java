@@ -15,7 +15,7 @@ public class InscricaoEstadual {
         private final String SAO_PAULO = "###.###.###.###";
         private final String MINAS_GERAIS = "#########.##-##";
         private final String RIO_DE_JANEIRO = "##.###.##-#";
-        private final String ESPÍRITO_SANTO = "###.###.##-#";
+        private final String ESPIRITO_SANTO = "###.###.##-#";
         private final String BAHIA = "###.###.##-#";
         private final String SERGIPE = "#########-#";
         private final String ALAGOAS = "#########";
@@ -155,7 +155,7 @@ public class InscricaoEstadual {
 		} else if (siglaUf.equals("CE")) {
 			return formatarConformeMascara(strIE, this.CEARA);
 		} else if (siglaUf.equals("ES")) {
-			return formatarConformeMascara(strIE, this.ESPÍRITO_SANTO);
+			return formatarConformeMascara(strIE, this.ESPIRITO_SANTO);
 		} else if (siglaUf.equals("GO")) {
 			return formatarConformeMascara(strIE, this.GOIAS);
 		} else if (siglaUf.equals("MA")) {
@@ -245,14 +245,14 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Acre
+	 * Valida Inscrição estadual do estado do Acre
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEAcre(String ie) throws Exception {
-		// valida a quantidade de d�gitos
+		// valida a quantidade de dígitos
 		if (ie.length() != 13) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
@@ -316,24 +316,24 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Alagoas
+	 * Valida Inscrição estadual do estado do Alagoas
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEAlagoas(String ie) throws Exception {
-		// valida quantidade de d�gitos
+		// valida quantidade de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// valida os dois primeiros d�gitos - deve ser iguais a 24
+		// valida os dois primeiros dígitos - deve ser iguais a 24
 		if (!ie.substring(0, 2).equals("24")) {
 			throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 		}
 
-		// valida o terceiro d�gito - deve ser 0,3,5,7,8
+		// valida o terceiro dígito - deve ser 0,3,5,7,8
 		int[] digits = { 0, 3, 5, 7, 8 };
 		boolean check = false;
 		for (int i = 0; i < digits.length; i++) {
@@ -346,10 +346,10 @@ public class InscricaoEstadual {
 			throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 		}
 
-		// calcula o d�gito verificador
+		// calcula o dígito verificador
 		int soma = 0;
 		int peso = 9;
-		int d = 0; // d�gito verificador
+		int d = 0; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -367,35 +367,35 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Amap�
+	 * Valida Inscrição estadual do estado do Amap�
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEAmapa(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// verifica os dois primeiros d�gitos - deve ser igual 03
+		// verifica os dois primeiros dígitos - deve ser igual 03
 		if (!ie.substring(0, 2).equals("03")) {
 			throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 		}
 
-		// calcula o d�gito verificador
+		// calcula o dígito verificador
 		int d1 = -1;
 		int soma = -1;
 		int peso = 9;
 
-		// configura o valor do d�gito verificador e da soma de acordo com faixa
-		// das inscri��es
+		// configura o valor do dígito verificador e da soma de acordo com faixa
+		// das inscriçães
 		long x = Long.parseLong(ie.substring(0, ie.length() - 1)); // x =
-																	// Inscri��o
+																	// Inscrição
 																	// estadual
 																	// sem o
-																	// d�gito
+																	// dígito
 																	// verificador
 		if (x >= 3017001L && x <= 3019022L) {
 			d1 = 1;
@@ -413,8 +413,8 @@ public class InscricaoEstadual {
 			peso--;
 		}
 
-		int d = 11 - ((soma % 11)); // d = armazena o d�gito verificador ap�s
-									// c�lculo
+		int d = 11 - ((soma % 11)); // d = armazena o dígito verificador ap�s
+									// cálculo
 		if (d == 10) {
 			d = 0;
 		} else if (d == 11) {
@@ -429,21 +429,21 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Amazonas
+	 * Valida Inscrição estadual do estado do Amazonas
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEAmazonas(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -465,19 +465,19 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Bahia
+	 * Valida Inscrição estadual do estado do Bahia
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEBahia(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 8 && ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA + ie);
 		}
 
-		// c�lculo do m�dulo de acordo com o primeiro d�gito da Inscri��o
+		// cálculo do m�dulo de acordo com o primeiro dígito da Inscrição
 		// Estadual
 		int modulo = 10;
 		int firstDigit = Integer
@@ -485,8 +485,8 @@ public class InscricaoEstadual {
 		if (firstDigit == 6 || firstDigit == 7 || firstDigit == 9)
 			modulo = 11;
 
-		// c�lculo do segundo d�gito
-		int d2 = -1; // segundo d�gito verificador
+		// cálculo do segundo dígito
+		int d2 = -1; // segundo dígito verificador
 		int soma = 0;
 		int peso = ie.length() == 8 ? 7 : 8;
 		for (int i = 0; i < ie.length() - 2; i++) {
@@ -502,8 +502,8 @@ public class InscricaoEstadual {
 			d2 = modulo - resto;
 		}
 
-		// c�lculo do primeiro d�gito
-		int d1 = -1; // primeiro d�gito verificador
+		// cálculo do primeiro dígito
+		int d1 = -1; // primeiro dígito verificador
 		soma = d2 * 2;
 		peso = ie.length() == 8 ? 8 : 9;
 		for (int i = 0; i < ie.length() - 2; i++) {
@@ -527,22 +527,22 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Cear�
+	 * Valida Inscrição estadual do estado do Cear�
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIECeara(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do d�gito verificador
+		// cálculo do dígito verificador
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -560,22 +560,22 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Esp�rito Santo
+	 * Valida Inscrição estadual do estado do Esp�rito Santo
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEEspiritoSanto(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do d�gito verificador
+		// cálculo do dígito verificador
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -596,19 +596,19 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Goi�s
+	 * Valida Inscrição estadual do estado do Goi�s
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEGoias(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// valida os dois primeiros d�gito
+		// valida os dois primeiros dígito
 		if (!"10".equals(ie.substring(0, 2))) {
 			if (!"11".equals(ie.substring(0, 2))) {
 				if (!"15".equals(ie.substring(0, 2))) {
@@ -625,10 +625,10 @@ public class InscricaoEstadual {
 			}
 		} else {
 
-			// c�lculo do d�gito verificador
+			// cálculo do dígito verificador
 			int soma = 0;
 			int peso = 9;
-			int d = -1; // d�gito verificador
+			int d = -1; // dígito verificador
 			for (int i = 0; i < ie.length() - 1; i++) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 				peso--;
@@ -659,27 +659,27 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Maranh�o
+	 * Valida Inscrição estadual do estado do Maranh�o
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEMaranhao(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// valida os dois primeiros d�gitos
+		// valida os dois primeiros dígitos
 		if (!ie.substring(0, 2).equals("12")) {
 			throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 		}
 
-		// Calcula o d�gito verificador
+		// Calcula o dígito verificador
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -698,19 +698,19 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Mato Grosso
+	 * Valida Inscrição estadual do estado do Mato Grosso
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEMatoGrosso(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 11) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// Calcula o d�gito verificador
+		// Calcula o dígito verificador
 		int soma = 0;
 		int pesoInicial = 3;
 		int pesoFinal = 9;
@@ -741,27 +741,27 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Mato Grosso do Sul
+	 * Valida Inscrição estadual do estado do Mato Grosso do Sul
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEMatoGrossoSul(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// valida os dois primeiros d�gitos
+		// valida os dois primeiros dígitos
 		if (!ie.substring(0, 2).equals("28")) {
 			throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 		}
 
-		// Calcula o d�gito verificador
+		// Calcula o dígito verificador
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -787,28 +787,28 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Minas Gerais
+	 * Valida Inscrição estadual do estado do Minas Gerais
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEMinasGerais(String ie) throws Exception {
 		/*
 		 * FORMATO GERAL: A1A2A3B1B2B3B4B5B6C1C2D1D2 Onde: A= c�digo do
-		 * Munic�pio B= N�mero da Inscri��o C= N�mero de ordem do
-		 * estabelecimento D= d�gitos de controle
+		 * Munic�pio B= N�mero da Inscrição C= N�mero de ordem do
+		 * estabelecimento D= dígitos de controle
 		 */
 
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 13) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// iguala a casas para o c�lculo
+		// iguala a casas para o cálculo
 		// em inserir o algarismo zero "0" imediatamente ap�s o n�mero de c�digo
 		// do munic�pio,
-		// desprezando-se os d�gitos de controle.
+		// desprezando-se os dígitos de controle.
 		String str = "";
 		for (int i = 0; i < ie.length() - 2; i++) {
 			if (Character.isDigit(ie.charAt(i))) {
@@ -821,11 +821,11 @@ public class InscricaoEstadual {
 			}
 		}
 
-		// c�lculo do primeiro d�gito verificador
+		// cálculo do primeiro dígito verificador
 		int soma = 0;
 		int pesoInicio = 1;
 		int pesoFim = 2;
-		int d1 = -1; // primeiro d�gito verificador
+		int d1 = -1; // primeiro dígito verificador
 		for (int i = 0; i < str.length(); i++) {
 			if (i % 2 == 0) {
 				int x = Integer.parseInt(String.valueOf(str.charAt(i)))
@@ -848,9 +848,9 @@ public class InscricaoEstadual {
 		while (dezenaExata % 10 != 0) {
 			dezenaExata++;
 		}
-		d1 = dezenaExata - soma; // resultado - primeiro d�gito verificador
+		d1 = dezenaExata - soma; // resultado - primeiro dígito verificador
 
-		// c�lculo do segundo d�gito verificador
+		// cálculo do segundo dígito verificador
 		soma = d1 * 2;
 		pesoInicio = 3;
 		pesoFim = 11;
@@ -867,7 +867,7 @@ public class InscricaoEstadual {
 			}
 		}
 
-		d2 = 11 - (soma % 11); // resultado - segundo d�gito verificador
+		d2 = 11 - (soma % 11); // resultado - segundo dígito verificador
 		if ((soma % 11 == 0) || (soma % 11 == 1)) {
 			d2 = 0;
 		}
@@ -880,27 +880,27 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Par�
+	 * Valida Inscrição estadual do estado do Par�
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEPara(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// valida os dois primeiros d�gitos
+		// valida os dois primeiros dígitos
 		if (!ie.substring(0, 2).equals("15")) {
 			throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 		}
 
-		// Calcula o d�gito verificador
+		// Calcula o dígito verificador
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -919,22 +919,22 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Para�ba
+	 * Valida Inscrição estadual do estado do Para�ba
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEParaiba(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// Calcula o d�gito verificador
+		// Calcula o dígito verificador
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -953,23 +953,23 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Paran�
+	 * Valida Inscrição estadual do estado do Paran�
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEParana(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 10) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do primeiro d�gito
+		// cálculo do primeiro dígito
 		int soma = 0;
 		int pesoInicio = 3;
 		int pesoFim = 7;
-		int d1 = -1; // d�gito verificador
+		int d1 = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 2; i++) {
 			if (i < 2) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i)))
@@ -987,11 +987,11 @@ public class InscricaoEstadual {
 			d1 = 0;
 		}
 
-		// c�lculo do segundo d�gito
+		// cálculo do segundo dígito
 		soma = d1 * 2;
 		pesoInicio = 4;
 		pesoFim = 7;
-		int d2 = -1; // segundo d�gito
+		int d2 = -1; // segundo dígito
 		for (int i = 0; i < ie.length() - 2; i++) {
 			if (i < 3) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i)))
@@ -1017,23 +1017,23 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Pernambuco
+	 * Valida Inscrição estadual do estado do Pernambuco
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEPernambuco(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 14) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do d�gito verificador
+		// cálculo do dígito verificador
 		int soma = 0;
 		int pesoInicio = 5;
 		int pesoFim = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 
 		for (int i = 0; i < ie.length() - 1; i++) {
 			if (i < 5) {
@@ -1064,22 +1064,22 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Piau�
+	 * Valida Inscrição estadual do estado do Piau�
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEPiaui(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do d�gito verficador
+		// cálculo do dígito verficador
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -1098,22 +1098,22 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Rio de Janeiro
+	 * Valida Inscrição estadual do estado do Rio de Janeiro
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIERioJaneiro(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 8) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// C�lculo do d�gito verficador
+		// cálculo do dígito verficador
 		int soma = 0;
 		int peso = 7;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			if (i == 0) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * 2;
@@ -1136,28 +1136,28 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Rio Grande do Norte
+	 * Valida Inscrição estadual do estado do Rio Grande do Norte
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIERioGrandeNorte(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 10 && ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// valida os dois primeiros d�gitos
+		// valida os dois primeiros dígitos
 		if (!ie.substring(0, 2).equals("20")) {
 			throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 		}
 
-		// calcula o d�gito para Inscri��o de 9 d�gitos
+		// calcula o dígito para Inscrição de 9 dígitos
 		if (ie.length() == 9) {
 			int soma = 0;
 			int peso = 9;
-			int d = -1; // d�gito verificador
+			int d = -1; // dígito verificador
 			for (int i = 0; i < ie.length() - 1; i++) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 				peso--;
@@ -1176,7 +1176,7 @@ public class InscricaoEstadual {
 		} else {
 			int soma = 0;
 			int peso = 10;
-			int d = -1; // d�gito verificador
+			int d = -1; // dígito verificador
 			for (int i = 0; i < ie.length() - 1; i++) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 				peso--;
@@ -1196,22 +1196,22 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Rio Grande do Sul
+	 * Valida Inscrição estadual do estado do Rio Grande do Sul
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIERioGrandeSul(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 10) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do d�gito verificador
+		// cálculo do dígito verificador
 		int soma = Integer.parseInt(String.valueOf(ie.charAt(0))) * 2;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 1; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -1230,23 +1230,23 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Rond�nia
+	 * Valida Inscrição estadual do estado do Rond�nia
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIERondonia(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 14) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do d�gito verificador
+		// cálculo do dígito verificador
 		int soma = 0;
 		int pesoInicio = 6;
 		int pesoFim = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			if (i < 5) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i)))
@@ -1272,26 +1272,26 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Roraima
+	 * Valida Inscrição estadual do estado do Roraima
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIERoraima(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// valida os dois primeiros d�gitos
+		// valida os dois primeiros dígitos
 		if (!ie.substring(0, 2).equals("24")) {
 			throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 		}
 
 		int soma = 0;
 		int peso = 1;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso++;
@@ -1307,22 +1307,22 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Santa Catarina
+	 * Valida Inscrição estadual do estado do Santa Catarina
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIESantaCatarina(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do d�gito verificador
+		// cálculo do dígito verificador
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -1341,14 +1341,14 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do S�o Paulo
+	 * Valida Inscrição estadual do estado do S�o Paulo
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIESaoPaulo(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 12 && ie.length() != 13) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
@@ -1356,8 +1356,8 @@ public class InscricaoEstadual {
 		if (ie.length() == 12) {
 			int soma = 0;
 			int peso = 1;
-			int d1 = -1; // primeiro d�gito verificador
-			// c�lculo do primeiro d�gito verificador (nona posi��o)
+			int d1 = -1; // primeiro dígito verificador
+			// cálculo do primeiro dígito verificador (nona posição)
 			for (int i = 0; i < ie.length() - 4; i++) {
 				if (i == 1 || i == 7) {
 					soma += Integer.parseInt(String.valueOf(ie.charAt(i)))
@@ -1371,18 +1371,18 @@ public class InscricaoEstadual {
 			}
 
 			d1 = soma % 11;
-			String strD1 = Integer.toString(d1); // O d�gito ? igual ao
+			String strD1 = Integer.toString(d1); // O dígito ? igual ao
 													// algarismo mais a direita
 													// do resultado de (soma %
 													// 11)
 			d1 = Integer
 					.parseInt(String.valueOf(strD1.charAt(strD1.length() - 1)));
 
-			// c�lculo do segunfo d�gito
+			// cálculo do segunfo dígito
 			soma = 0;
 			int pesoInicio = 3;
 			int pesoFim = 10;
-			int d2 = -1; // segundo d�gito verificador
+			int d2 = -1; // segundo dígito verificador
 			for (int i = 0; i < ie.length() - 1; i++) {
 				if (i < 2) {
 					soma += Integer.parseInt(String.valueOf(ie.charAt(i)))
@@ -1396,14 +1396,14 @@ public class InscricaoEstadual {
 			}
 
 			d2 = soma % 11;
-			String strD2 = Integer.toString(d2); // O d�gito ? igual ao
+			String strD2 = Integer.toString(d2); // O dígito ? igual ao
 													// algarismo mais a direita
 													// do resultado de (soma %
 													// 11)
 			d2 = Integer
 					.parseInt(String.valueOf(strD2.charAt(strD2.length() - 1)));
 
-			// valida os d�gitos verificadores
+			// valida os dígitos verificadores
 			if (!ie.substring(8, 9).equals(d1 + "")) {
 				throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 			}
@@ -1417,13 +1417,13 @@ public class InscricaoEstadual {
 				throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 			}
 
-			String strIE = ie.substring(1, 10); // Obt�m somente os d�gitos
-												// utilizados no c�lculo do
-												// d�gito verificador
+			String strIE = ie.substring(1, 10); // Obt�m somente os dígitos
+												// utilizados no cálculo do
+												// dígito verificador
 			int soma = 0;
 			int peso = 1;
-			int d1 = -1; // primeiro d�gito verificador
-			// c�lculo do primeiro d�gito verificador (nona posi��o)
+			int d1 = -1; // primeiro dígito verificador
+			// cálculo do primeiro dígito verificador (nona posição)
 			for (int i = 0; i < strIE.length() - 1; i++) {
 				if (i == 1 || i == 7) {
 					soma += Integer.parseInt(String.valueOf(strIE.charAt(i)))
@@ -1437,14 +1437,14 @@ public class InscricaoEstadual {
 			}
 
 			d1 = soma % 11;
-			String strD1 = Integer.toString(d1); // O d�gito ? igual ao
+			String strD1 = Integer.toString(d1); // O dígito ? igual ao
 													// algarismo mais a direita
 													// do resultado de (soma %
 													// 11)
 			d1 = Integer
 					.parseInt(String.valueOf(strD1.charAt(strD1.length() - 1)));
 
-			// valida o d�gito verificador
+			// valida o dígito verificador
 			if (!ie.substring(9, 10).equals(d1 + "")) {
 				throw new Exception(this.INSCRICAO_ESTADUAL_INVALIDA);
 			}
@@ -1452,22 +1452,22 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Sergipe
+	 * Valida Inscrição estadual do estado do Sergipe
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIESergipe(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do d�gito verificador
+		// cálculo do dígito verificador
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
 			peso--;
@@ -1486,14 +1486,14 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Tocantins
+	 * Valida Inscrição estadual do estado do Tocantins
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIETocantins(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 9 && ie.length() != 11) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		} else if (ie.length() == 9) {
@@ -1502,7 +1502,7 @@ public class InscricaoEstadual {
 
 		int soma = 0;
 		int peso = 9;
-		int d = -1; // d�gito verificador
+		int d = -1; // dígito verificador
 		for (int i = 0; i < ie.length() - 1; i++) {
 			if (i != 2 && i != 3) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i))) * peso;
@@ -1522,23 +1522,23 @@ public class InscricaoEstadual {
 	}
 
 	/**
-	 * Valida Inscri��o estadual do estado do Distrito Federal
+	 * Valida Inscrição estadual do estado do Distrito Federal
 	 * 
 	 * @param ie
-	 *            (Inscri��o estadual)
+	 *            (Inscrição estadual)
 	 * @throws Exception
 	 */
 	private  void validaIEDistritoFederal(String ie) throws Exception {
-		// valida quantida de d�gitos
+		// valida quantida de dígitos
 		if (ie.length() != 13) {
 			throw new Exception(this.QUANTIDADE_DE_DIGITOS_INVALIDA);
 		}
 
-		// c�lculo do primeiro d�gito verificador
+		// cálculo do primeiro dígito verificador
 		int soma = 0;
 		int pesoInicio = 4;
 		int pesoFim = 9;
-		int d1 = -1; // primeiro d�gito verificador
+		int d1 = -1; // primeiro dígito verificador
 		for (int i = 0; i < ie.length() - 2; i++) {
 			if (i < 3) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i)))
@@ -1556,11 +1556,11 @@ public class InscricaoEstadual {
 			d1 = 0;
 		}
 
-		// c�lculo do segundo d�gito verificador
+		// cálculo do segundo dígito verificador
 		soma = d1 * 2;
 		pesoInicio = 5;
 		pesoFim = 9;
-		int d2 = -1; // segundo d�gito verificador
+		int d2 = -1; // segundo dígito verificador
 		for (int i = 0; i < ie.length() - 2; i++) {
 			if (i < 4) {
 				soma += Integer.parseInt(String.valueOf(ie.charAt(i)))
